@@ -16,7 +16,7 @@ const options = {
   },
 };
 
-app.get("/cardDetails", (req, res) => {
+app.get("/", (req, res) => {
     console.log('hello')
   fetch(url, options)
     .then((res) => res.json())
