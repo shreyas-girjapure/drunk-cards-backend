@@ -24,6 +24,3 @@ app.get("/", (req, res) => {
     .catch((err) => console.error("error:" + err));
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
