@@ -66,10 +66,11 @@ function fillArrayBasedOnCapacity(capacityMap, mappedArray) {
 }
 
 function getShuffledAndProbableArray(arrayList) {
-  let arrayListFromBackend = shuffle(arrayList);
+  let arrayListFromBackend = arrayList;
   let capacityArray = fillCapacity(ratePerRarity, arrayList.length);
   let mappedArray = mapRecordsAndRarity(arrayListFromBackend);
   let finalArray = fillArrayBasedOnCapacity(capacityArray, mappedArray);
+  finalArray = shuffle(finalArray);
   return finalArray;
 }
 
