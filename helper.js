@@ -56,10 +56,8 @@ function mapRecordsAndRarity(listOfRecords) {
 function fillArrayBasedOnCapacity(capacityMap, mappedArray) {
   let finalArray = [];
   for (const [key, value] of Object.entries(capacityMap)) {
-    let slicedArray = mappedArray[key].slice(
-      0,
-      value || mappedArray[key].length
-    );
+    let sliceNumber = value > mappedArray[key].length ? mappedArray[key].length : value; 
+    let slicedArray = mappedArray[key].slice(0,sliceNumber);
     finalArray = finalArray.concat(slicedArray);
   }
   return finalArray;
