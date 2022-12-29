@@ -40,10 +40,6 @@ app.get("/", async (req, res) => {
   const cardAllDetailsStream = await fetch(url, options);
   const cardAllDetails = await cardAllDetailsStream.json();
   const arrayToSend  = getShuffledAndProbableArray(cardAllDetails);
-  console.log(filterCardRecords('Common',arrayToSend).length);
-  console.log(filterCardRecords('Rare',arrayToSend).length);
-  console.log(filterCardRecords('Epic',arrayToSend).length);
-  console.log(filterCardRecords('Legendary',arrayToSend).length);
   res.send(arrayToSend);
 });
 
