@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+
+const { getShuffledAndProbableArray, filterCardRecords, shuffle } = require("./helper.js");
+
 const port = 3000;
 
 const cors = require("cors");
@@ -36,7 +39,12 @@ app.get("/", async (req, res) => {
   }
   const cardAllDetailsStream = await fetch(url, options);
   const cardAllDetails = await cardAllDetailsStream.json();
-  res.send(cardAllDetails);
+  const arrayToSend  = getShuffledAndProbableArray(cardAllDetails);
+  console.log(filterCardRecords('Common',arrayToSend).length);
+  console.log(filterCardRecords('Rare',arrayToSend).length);
+  console.log(filterCardRecords('Epic',arrayToSend).length);
+  console.log(filterCardRecords('Legendary',arrayToSend).length);
+  res.send(arrayToSend);
 });
 
 app.listen(port, () => {
